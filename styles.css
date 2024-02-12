@@ -1,7 +1,14 @@
 .cell {
-    min-width: 4px;
-    min-height: 4px;
     border: 1px solid black;
+    flex: 1;
+    aspect-ratio: 1;
+}
+
+.used{
+    border: 1px solid black;
+    background-color: rgb(13, 146, 101);
+    flex: 1;
+    aspect-ratio: 1;
 }
 
 #pad{
@@ -9,12 +16,5 @@
     flex-wrap: wrap;
     height: 600px;
     width: 600px;
-    border: 1px solid black;
-}
-
-.used{
-    background-color: aquamarine;
-    min-width: 4px;
-    min-height: 4px;
     border: 1px solid black;
 }

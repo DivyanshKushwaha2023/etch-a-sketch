@@ -11,13 +11,14 @@ function createGrid (n) {
         
     }
 }
-createGrid(16);
+createGrid();
 
 
 let newGrid = document.querySelector('#new');
 
 newGrid.addEventListener("click", () => remOldGetNew());
 function remOldGetNew() {
+    clearUsed();
     let toRemove = document.querySelectorAll('.cell')
     for (let i = 0; i < toRemove.length; i++){
         sketchPad.removeChild(toRemove[i]);      
@@ -28,9 +29,11 @@ function remOldGetNew() {
 
 
 let reset = document.querySelector('#reset');
-reset.addEventListener('click', () => {
+reset.addEventListener('click',() => clearUsed());
+
+function clearUsed(){
     let cellList = document.querySelectorAll('.used');
     for(let i = 0; i < cellList.length; i++){    
         cellList[i].setAttribute('class', 'cell');
     }
-})
+}
