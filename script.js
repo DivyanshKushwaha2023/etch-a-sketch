@@ -1,7 +1,7 @@
 let sketchPad = document.querySelector('#pad');
 let col = document.querySelectorAll('col');
 
-createCell(16);
+createCell(20);
 
 function createCell(n){
     //for rows
@@ -22,26 +22,31 @@ function createCell(n){
 
 
 
-let newGrid = document.querySelector('#new');
+let newPad = document.querySelector('#new');
 
-newGrid.addEventListener("click", () => remOldGetNew());
+newPad.addEventListener("click", () => remOldGetNew());
 function remOldGetNew() {
-    clearUsed();
+    clearUsedCells();
     let toRemove = document.querySelectorAll('.rows')
     for (let i = 0; i < toRemove.length; i++){
         sketchPad.removeChild(toRemove[i]);      
     }    
-    let m = prompt("Choose number of cells per row.","16");
-    createCell(m);
+    let m = prompt("Choose number of squares per side.(<=100)","16");
+    if(m>100){
+        alert("Choose again,must be less than or equal to 100.")
+    } else{
+        createCell(m);
+    }
+        
 }
 
 
 let reset = document.querySelector('#reset');
-reset.addEventListener('click',() => clearUsed());
+reset.addEventListener('click',() => clearUsedCells());
 
-function clearUsed(){
-    let colList = document.querySelectorAll('.used');
-    for(let i = 0; i < colList.length; i++){    
-        colList[i].setAttribute('class', 'cells');
+function clearUsedCells(){
+    let cellList = document.querySelectorAll('.used');
+    for(let i = 0; i < cellList.length; i++){    
+        cellList[i].setAttribute('class', 'cells');
     }
 }
